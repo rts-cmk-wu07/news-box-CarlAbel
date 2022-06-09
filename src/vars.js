@@ -1,0 +1,33 @@
+export const vars = {
+  base: {
+    xLarge: "2.5rem",
+    large: "2rem",
+    medium: "1.5rem",
+    small: "1rem",
+    xSmall: "0.5rem",
+  },
+  dark: {
+    primaryColor_1: "#87BCBF",
+    primaryColor_2: "#D97D54",
+    primaryColor_3: "#324755",
+    primaryColor_4: "#D95454",
+    secondaryColor_1: "#F0F3F4",
+    secondaryColor_2: "#C8D1D3",
+    secondaryColor_3: "#B9B0A2",
+    text_1: "#1B1C20",
+    text_2: "#6E8CA0",
+    text_3: "#FFFFFF",
+  },
+  light: {
+    primaryColor_1: "#87BCBF",
+    primaryColor_2: "#D97D54",
+    primaryColor_3: "#324755",
+    primaryColor_4: "#D95454",
+    secondaryColor_1: "#F0F3F4",
+    secondaryColor_2: "#C8D1D3",
+    secondaryColor_3: "#B9B0A2",
+    text_1: "#1B1C20",
+    text_2: "#6E8CA0",
+    text_3: "#FFFFFF",
+  },
+}
