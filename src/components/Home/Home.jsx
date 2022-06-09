@@ -1,13 +1,37 @@
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react"
+import { vars } from "../../vars"
+
 const Home = () => {
+  const { light } = vars
+  const styles = {
+    inputContainer: css`
+      padding: 1rem;
+    `,
+    input: css`
+      width: 90%;
+      height: 36px;
+      background-color: ${light.secondaryColor_1};
+      border: none;
+      border-radius: 2px;
+    `,
+  }
+
   return (
-    <div>
-      <h1>Home</h1>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis
-        exercitationem porro architecto, magni iure rerum quo nesciunt at
-        aspernatur cumque ab voluptatem quaerat nihil neque cupiditate dolor
-        possimus, expedita suscipit.
-      </p>
+    <div className="newsBox">
+      <div css={styles.inputContainer}>
+        <input
+          css={styles.input}
+          type="search"
+          name="inputSearchHome"
+          id="inputSearchHome"
+        />
+      </div>
+      <div className="categoryLinks">
+        <ul>Health</ul>
+        <ul>Sport</ul>
+        <ul>Travel</ul>
+      </div>
     </div>
   )
 }

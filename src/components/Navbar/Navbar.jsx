@@ -1,27 +1,20 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react"
 import { Link } from "react-router-dom"
+import { vars } from "../../vars"
 
 const Navbar = () => {
+  const { light } = vars
   const styles = {
     navbar: css`
-      padding: 1.5rem 2rem;
-      display: flex;
-
-      max-width: 1000px;
-      margin: 0 auto;
-      border-bottom: 1px solid;
-
-      justify-content: space-between;
+      padding: 2rem 2rem;
+      border-bottom: 1px solid ${light.secondaryColor_2};
       border-top: none;
 
       & a {
-        margin-left: 16px;
         text-decoration: none;
-        padding: 6px;
         transition: 0.2s;
         font-weight: 600;
-        position: relative;
         color: #353bf152;
 
         &:after {
@@ -48,6 +41,10 @@ const Navbar = () => {
         }
       }
     `,
+    linksContainer: css`
+      display: flex;
+      justify-content: space-between;
+    `,
     heading: css`
       color: #353bf1;
     `,
@@ -57,9 +54,9 @@ const Navbar = () => {
   }
   return (
     <nav css={styles.navbar}>
-      <div className="links" css={styles.links}>
-        <Link to="/home">Home</Link>
+      <div css={styles.linksContainer}>
         <Link to="/archive">Archive</Link>
+        <Link to="/home">Newsbox</Link>
         <Link to="/settings">Settings</Link>
       </div>
     </nav>

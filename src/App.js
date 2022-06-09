@@ -7,8 +7,8 @@ import Navbar from "./components/Navbar/Navbar"
 const styles = {
   content: css`
     max-width: 100%;
-    margin: 40px auto;
-    padding: 20px;
+    margin: 0 auto;
+    padding: 0;
   `,
 }
 function App() {
