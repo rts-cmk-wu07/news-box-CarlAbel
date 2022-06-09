@@ -7,14 +7,13 @@ const Navbar = () => {
     navbar: css`
       padding: 1.5rem 2rem;
       display: flex;
-      align-items: center;
+
       max-width: 1000px;
       margin: 0 auto;
-      border: 4px solid #353bf152;
-      border-radius: 0 0 1.5rem 1.5rem;
+      border-bottom: 1px solid;
+
       justify-content: space-between;
       border-top: none;
-      background: #fefefe;
 
       & a {
         margin-left: 16px;
