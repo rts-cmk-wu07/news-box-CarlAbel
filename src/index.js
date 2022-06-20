@@ -3,9 +3,8 @@ import ReactDOM from "react-dom/client"
 import "./index.css"
 import App from "./App"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Home from "./components/Home/Home"
-import Archive from "./components/Archive/Archive"
-import Settings from "./components/Settings/Settings"
+import Home from "./pages/Home"
+import Archive from "./pages/Archive"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
@@ -13,9 +12,8 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route path="/archive" element={<Archive />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/settings" element={<Settings />} />
+          <Route path="/archive" element={<Archive />} />
         </Route>
       </Routes>
     </BrowserRouter>
