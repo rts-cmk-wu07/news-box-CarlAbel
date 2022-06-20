@@ -1,16 +1,25 @@
 import HeadingCard from "../components/HeadingCard"
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import Context from "../context/Context"
 
 import { vars } from "../vars/vars"
 import Switch from "../components/Switch"
+import DarkModeToggle from "react-dark-mode-toggle"
 const Menu = () => {
+  const [theme, setTheme] = useState("light")
   const optMenu = useContext(Context)
   const optMenuOpen = optMenu.optMenu
+  const handleThemeChange = () => {
+    if (theme === light) {
+      setTheme(dark)
+    } else {
+      setTheme(light)
+    }
+  }
 
-  const { light } = vars
+  const { light, dark } = vars
   const styles = {
     menu: css`
       overflow: hidden;
@@ -57,6 +66,12 @@ const Menu = () => {
         />
       </div>
       <Switch rounded={true} />
+      <DarkModeToggle
+        onClick={handleThemeChange}
+        onChange={() => setTheme({ darkMode: !theme.darkMode })}
+        checked={theme.darkMode}
+        size={60}
+      />
     </div>
   )
 }

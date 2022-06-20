@@ -42,9 +42,10 @@ const HeadingCard = ({ type, color, text }) => {
       color: ${color || light.text_1};
       height: 20px;
       overflow: hidden;
-      width: 100%;
+
       text-overflow: ellipsis;
       white-space: nowrap;
+      padding: 0;
     `,
   }
   return (

@@ -140,7 +140,7 @@ const Navbar = () => {
           css={styles.settingsBtn}
           onClick={() => setOptMenu(!optMenuOpen)}
         >
-          <i className="fa-solid fa-gear" css={styles.settingsIcon}></i>
+          <FeatherIcon icon="settings" css={styles.settingsIcon} />
           <div css={styles.cross}></div>
         </button>
       </div>

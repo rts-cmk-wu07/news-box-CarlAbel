@@ -12,13 +12,7 @@ import Context from "./context/Context"
 function App() {
   const { light, dark } = vars
   const [theme, setTheme] = useState("light")
-  const handleThemeChange = () => {
-    if (theme === light) {
-      setTheme(dark)
-    } else {
-      setTheme(light)
-    }
-  }
+
   const colors = theme
   const styles = {
     content: css`
@@ -30,7 +24,7 @@ function App() {
   const [optMenu, setOptMenu] = useState(false)
   return (
     <div className="App">
-      <ThemeContext.Provider value={theme}>
+      <ThemeContext.Provider value={(theme, setTheme)}>
         <Context.Provider value={{ optMenu, setOptMenu }}>
           <>
             <Navbar colors={colors} />
