@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react"
 
-const BodyCard = ({ type, color, text }) => {
+const BodyCard = ({ type, colors, text }) => {
   const styles = {
     card: css`
       font-size: 11pt;

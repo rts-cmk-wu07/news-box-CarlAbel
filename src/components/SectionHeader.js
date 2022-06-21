@@ -2,20 +2,11 @@ import FeatherIcon from "feather-icons-react"
 import HeadingCard from "./HeadingCard"
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react"
-
-import { useState } from "react"
-import { vars } from "../vars/vars"
+import { useContext } from "react"
+import ThemeContext from "../context/ThemeContext"
 
 const SectionHeader = ({ title, isOpen, setIsOpen, numberOfArticles }) => {
-  const [theme, setTheme] = useState("light")
-  const handleThemeChange = () => {
-    if (theme === light) {
-      setTheme(dark)
-    } else {
-      setTheme(light)
-    }
-  }
-  const { light, dark } = vars
+  const colors = useContext(ThemeContext)
   const styles = {
     header: css`
       display: flex;
@@ -33,7 +24,7 @@ const SectionHeader = ({ title, isOpen, setIsOpen, numberOfArticles }) => {
       height: 2.5rem;
       width: 2.5rem;
       border-radius: 100px;
-      color: ${light.primaryColor_2};
+      color: ${colors.primaryColor_2};
       & svg {
         stroke-width: 2.5px;
       }

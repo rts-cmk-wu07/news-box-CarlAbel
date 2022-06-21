@@ -32,7 +32,7 @@ const Section = ({ title, data }) => {
   const { light } = vars
   const styles = {
     section: css`
-      border-bottom: 2px solid ${light.secondary_1};
+      border-bottom: 2px solid ${light.secondaryColor_1};
     `,
     list: css`
       height: 0;
@@ -45,7 +45,7 @@ const Section = ({ title, data }) => {
         }rem + (${numberOfArticles} * 1px));
 			`}
     `,
-    action: css`
+    swipe: css`
       display: flex;
       align-items: center;
       justify-content: center;
@@ -117,7 +117,7 @@ const Section = ({ title, data }) => {
                     onClick={() => swipeHandler(article)}
                     destructive={location.pathname === "/archive"}
                   >
-                    <div css={styles.action}>
+                    <div css={styles.swipe}>
                       <FeatherIcon icon="inbox" />
                     </div>
                   </SwipeAction>

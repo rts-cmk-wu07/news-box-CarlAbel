@@ -12,10 +12,18 @@ import Context from "./context/Context"
 function App() {
   const { light, dark } = vars
   const [theme, setTheme] = useState("light")
-
+  const handleThemeChange = () => {
+    if (theme === dark) {
+      setTheme(light)
+    } else {
+      setTheme(dark)
+    }
+  }
   const colors = theme
+
   const styles = {
-    content: css`
+    contentContainer: css`
+      background: ${colors.secondaryColor_1};
       max-width: 100%;
       margin: 0 auto;
       padding: 0;
@@ -24,12 +32,12 @@ function App() {
   const [optMenu, setOptMenu] = useState(false)
   return (
     <div className="App">
-      <ThemeContext.Provider value={(theme, setTheme)}>
+      <ThemeContext.Provider value={colors}>
         <Context.Provider value={{ optMenu, setOptMenu }}>
-          <>
-            <Navbar colors={colors} />
-          </>
-          <div css={styles.content}>
+          <div>
+            <Navbar colors={colors} handleThemeChange={handleThemeChange} />
+          </div>
+          <div css={styles.contentContainer}>
             <Outlet />
           </div>
         </Context.Provider>

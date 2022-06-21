@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react"
 import FeatherIcon from "feather-icons-react"
-import { vars } from "../vars/vars"
+
 import { Link, useLocation } from "react-router-dom"
 
 import { useContext } from "react"
@@ -9,14 +9,16 @@ import Context from "../context/Context"
 
 import SettingsMenu from "../temp/SettingsMenu"
 import HeadingCard from "./HeadingCard"
-const Navbar = () => {
+import ThemeContext from "../context/ThemeContext"
+
+const Navbar = ({ handleThemeChange }) => {
+  const colors = useContext(ThemeContext)
   const location = useLocation()
 
   const optMenu = useContext(Context)
   const optMenuOpen = optMenu.optMenu
   const setOptMenu = optMenu.setOptMenu
 
-  const { light } = vars
   const aDuration = 0.7
   const styles = {
     navbar: css`
@@ -27,13 +29,13 @@ const Navbar = () => {
       align-items: center;
 
       padding: 24px 32px 0 32px;
-      border-bottom: 1px solid ${light.secondaryColor_1};
-      background: ${light.secondaryColor_1};
+      border-bottom: 1px solid ${colors.secondaryColor_1};
+      background: ${colors.secondaryColor_1};
       z-index: 1000;
       backdrop-filter: blur(1rem);
       ${optMenuOpen &&
       `
-				background: ${light.secondaryColor_1};
+				background: ${colors.secondaryColor_1};
 			`}
     `,
     linksContainer: css`
@@ -54,7 +56,7 @@ const Navbar = () => {
     `,
     settingsIcon: css`
       transition: 0.5s;
-      color: ${light.text_1};
+      color: ${colors.text_1};
       ${optMenuOpen &&
       `
       opacity: 0;
@@ -79,7 +81,7 @@ const Navbar = () => {
         transform: translate(-50%, -50%);
         width: 1px;
         height: 2px;
-        background: ${light.text_1};
+        background: ${colors.text_1};
         border-radius: 100px;
         transition: ${aDuration}s;
       }
@@ -144,7 +146,7 @@ const Navbar = () => {
           <div css={styles.cross}></div>
         </button>
       </div>
-      <SettingsMenu />
+      <SettingsMenu colors={colors} handleThemeChange={handleThemeChange} />
     </nav>
   )
 }

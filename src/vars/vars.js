@@ -1,16 +1,4 @@
 export const vars = {
-  dark: {
-    primaryColor_1: "#87BCBF",
-    primaryColor_2: "#D97D54",
-    primaryColor_3: "#324755",
-    primaryColor_4: "#D95454",
-    secondaryColor_1: "#000",
-    secondaryColor_2: "#C8D1D3",
-    secondaryColor_3: "#B9B0A2",
-    text_1: "#1B1C20",
-    text_2: "#6E8CA0",
-    text_3: "#FFFFFF",
-  },
   light: {
     primaryColor_1: "#87BCBF",
     primaryColor_2: "#D97D54",
@@ -22,5 +10,17 @@ export const vars = {
     text_1: "#1B1C20",
     text_2: "#6E8CA0",
     text_3: "#FFFFFF",
+  },
+  dark: {
+    primaryColor_1: "#87BCBF",
+    primaryColor_2: "#D97D54",
+    primaryColor_3: "#324755",
+    primaryColor_4: "#D95454",
+    secondaryColor_1: "#1B1C20",
+    secondaryColor_2: "#13343C",
+    secondaryColor_3: "#352F26",
+    text_1: "#F0F3F4",
+    text_2: "#809EB2",
+    text_3: "#000000",
   },
 }

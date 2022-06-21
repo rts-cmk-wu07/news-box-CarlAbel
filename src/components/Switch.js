@@ -3,13 +3,14 @@ import { css } from "@emotion/react"
 
 import "./Switch.css"
 
-import { vars } from "../vars/vars"
 import cx from "classnames"
 import HeadingCard from "./HeadingCard"
+import { useContext } from "react"
+import ThemeContext from "../context/ThemeContext"
 
 const Switch = ({ rounded = false }) => {
+  const colors = useContext(ThemeContext)
   const sliderCX = cx("slider", { rounded: rounded })
-  const { light } = vars
 
   const styles = {
     mainContainer: css`
@@ -17,7 +18,7 @@ const Switch = ({ rounded = false }) => {
       flex-direction: column;
 
       border-radius: 32px;
-      background: ${light.text_3};
+      background: ${colors.secondaryColor_2};
       padding-top: 20px;
       height: 600px;
     `,
@@ -27,66 +28,69 @@ const Switch = ({ rounded = false }) => {
       justify-content: space-between;
       align-items: center;
 
-      border-bottom: solid 1px ${light.secondaryColor_1};
+      border-bottom: solid 1px ${colors.secondaryColor_1};
       padding: 10px 24px;
       gap: 160px;
-      background: ${light.text_3};
+      background: ${colors.secondaryColor_2};
+    `,
+    borderRadius: css`
+      border-radius: 24px;
     `,
   }
 
   return (
     <div css={styles.mainContainer}>
-      <div css={styles.labelContainer}>
-        <HeadingCard type="HeadingCard" text="Arts" />
+      <div className="borderRadiusTop" css={styles.labelContainer}>
+        <HeadingCard type="HeadingCard" text="ARTS" />
         <label className="switch">
           <input type="checkbox" />
           <span className={sliderCX} />
         </label>
       </div>
       <div css={styles.labelContainer}>
-        <HeadingCard type="HeadingCard" text="Buisness" />
+        <HeadingCard type="HeadingCard" text="BUISNESS" />
         <label className="switch">
           <input type="checkbox" />
           <span className={sliderCX} />
         </label>
       </div>
       <div css={styles.labelContainer}>
-        <HeadingCard type="HeadingCard" text="Climate" />
+        <HeadingCard type="HeadingCard" text="CLIMATE" />
         <label className="switch">
           <input type="checkbox" />
           <span className={sliderCX} />
         </label>
       </div>
       <div css={styles.labelContainer}>
-        <HeadingCard type="HeadingCard" text="Gameplay" />
+        <HeadingCard type="HeadingCard" text="GAMEPLAY" />
         <label className="switch">
           <input type="checkbox" />
           <span className={sliderCX} />
         </label>
       </div>
       <div css={styles.labelContainer}>
-        <HeadingCard type="HeadingCard" text="Opinion" />
+        <HeadingCard type="HeadingCard" text="OPINION" />
         <label className="switch">
           <input type="checkbox" />
           <span className={sliderCX} />
         </label>
       </div>
       <div css={styles.labelContainer}>
-        <HeadingCard type="HeadingCard" text="Real Estate" />
+        <HeadingCard type="HeadingCard" text="REAL ESTATE" />
         <label className="switch">
           <input type="checkbox" />
           <span className={sliderCX} />
         </label>
       </div>
       <div css={styles.labelContainer}>
-        <HeadingCard type="HeadingCard" text="Science" />
+        <HeadingCard type="HeadingCard" text="SCIENCE" />
         <label className="switch">
           <input type="checkbox" />
           <span className={sliderCX} />
         </label>
       </div>
       <div css={styles.labelContainer}>
-        <HeadingCard type="HeadingCard" text="Technology" />
+        <HeadingCard type="HeadingCard" text="TECHNOLOGY" />
         <label className="switch">
           <input type="checkbox" />
           <span className={sliderCX} />
@@ -99,8 +103,8 @@ const Switch = ({ rounded = false }) => {
           <span className={sliderCX} />
         </label>
       </div>
-      <div css={styles.labelContainer}>
-        <HeadingCard type="HeadingCard" text="World" />
+      <div className="borderRadiusBottom " css={styles.labelContainer}>
+        <HeadingCard type="HeadingCard" text="WORLD" />
         <label className="switch">
           <input type="checkbox" />
           <span className={sliderCX} />

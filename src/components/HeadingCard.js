@@ -1,45 +1,38 @@
+import { useContext } from "react"
+
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react"
-import { useState } from "react"
-import { vars } from "../vars/vars"
+import ThemeContext from "../context/ThemeContext"
 
-const HeadingCard = ({ type, color, text }) => {
-  const [theme, setTheme] = useState("light")
-  const handleThemeChange = () => {
-    if (theme === light) {
-      setTheme(dark)
-    } else {
-      setTheme(light)
-    }
-  }
-  const { light, dark } = vars
+const HeadingCard = ({ type, text }) => {
+  const colors = useContext(ThemeContext)
   const styles = {
     h1: css`
       font-size: 30pt;
       font-weight: bold;
-      color: ${color || light.text_1};
+      color: ${colors.text_1};
     `,
     h2: css`
       font-size: 24pt;
       font-weight: bold;
-      color: ${color || light.text_1};
+      color: ${colors.text_1};
     `,
     h3: css`
       font-size: 15pt;
       font-weight: bold;
-      color: ${color || light.text_1};
+      color: ${colors.text_1};
     `,
     h4: css`
       font-size: 13pt;
       font-weight: bold;
-      color: ${color || light.text_1};
+      color: ${colors.text_1};
       text-transform: uppercase;
       letter-spacing: 1px;
     `,
     h5: css`
       font-size: 12pt;
       font-weight: 700;
-      color: ${color || light.text_1};
+      color: ${colors.text_1};
       height: 20px;
       overflow: hidden;
 

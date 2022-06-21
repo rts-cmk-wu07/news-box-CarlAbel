@@ -46,3 +46,11 @@ input:checked + .slider:before {
 .slider.rounded:before {
   border-radius: 50%;
 }
+.borderRadiusTop {
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+}
+.borderRadiusBottom {
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
