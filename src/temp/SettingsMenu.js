@@ -7,7 +7,7 @@ import Context from "../context/Context"
 
 import Switch from "../components/Switch"
 
-const Menu = ({ colors, handleThemeChange }) => {
+const SettingsMenu = ({ colors, handleThemeChange }) => {
   const optMenu = useContext(Context)
   const optMenuOpen = optMenu.optMenu
 
@@ -58,4 +58,4 @@ const Menu = ({ colors, handleThemeChange }) => {
   )
 }
 
-export default Menu
+export default SettingsMenu

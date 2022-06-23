@@ -30,7 +30,7 @@ const Switch = ({ rounded = false }) => {
 
       border-bottom: solid 1px ${colors.secondaryColor_1};
       padding: 10px 24px;
-      gap: 160px;
+      gap: 100px;
       background: ${colors.secondaryColor_2};
     `,
     borderRadius: css`

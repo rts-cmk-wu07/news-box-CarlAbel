@@ -10,7 +10,7 @@ const HeadingCard = ({ type, text }) => {
     h1: css`
       font-size: 30pt;
       font-weight: bold;
-      color: ${colors.text_1};
+      color: ${colors.primaryColor_1};
     `,
     h2: css`
       font-size: 24pt;
