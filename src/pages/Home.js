@@ -47,14 +47,16 @@ const Home = () => {
   return (
     <div>
       <Search />
-      {error && <p>{error}</p>}
-      {isPending && (
-        <div css={styles.loading}>
-          <span></span>
-          <span></span>
-        </div>
-      )}
-      <main>{data && <Sections data={results} />}</main>
+      <div>
+        {error && <p>{error}</p>}
+        {isPending && (
+          <div css={styles.loading}>
+            <span></span>
+            <span></span>
+          </div>
+        )}
+        <main>{data && <Sections data={results} />}</main>
+      </div>
     </div>
   )
 }

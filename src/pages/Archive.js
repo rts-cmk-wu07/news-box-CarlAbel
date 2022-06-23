@@ -7,7 +7,9 @@ const Archive = () => {
   return (
     <div>
       <Search />
-      <main>{data && <Sections data={data} />}</main>
+      <div>
+        <main>{data && <Sections data={data} />}</main>
+      </div>
     </div>
   )
 }
