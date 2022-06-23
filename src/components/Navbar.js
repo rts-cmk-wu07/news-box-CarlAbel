@@ -29,6 +29,7 @@ const Navbar = ({ handleThemeChange }) => {
       align-items: center;
 
       padding: 24px 32px 0 32px;
+
       border-bottom: 1px solid ${colors.secondaryColor_1};
       background: ${colors.secondaryColor_1};
       z-index: 1000;
@@ -62,7 +63,7 @@ const Navbar = ({ handleThemeChange }) => {
       opacity: 0;
       `}
     `,
-    cross: css`
+    close: css`
       position: absolute;
       top: 50%;
       left: 50%;
@@ -143,7 +144,7 @@ const Navbar = ({ handleThemeChange }) => {
           onClick={() => setOptMenu(!optMenuOpen)}
         >
           <FeatherIcon icon="settings" css={styles.settingsIcon} />
-          <div css={styles.cross}></div>
+          <div css={styles.close}></div>
         </button>
       </div>
       <SettingsMenu colors={colors} handleThemeChange={handleThemeChange} />

@@ -11,6 +11,7 @@ const SectionHeader = ({ title, isOpen, setIsOpen, numberOfArticles }) => {
     header: css`
       display: flex;
       padding: 0.75rem 1.5rem;
+
       gap: 1rem;
       align-items: center;
       overflow-y: hidden;
@@ -36,7 +37,7 @@ const SectionHeader = ({ title, isOpen, setIsOpen, numberOfArticles }) => {
       background: transparent;
       border: none;
       color: inherit;
-      transition: 0.25s;
+      transition: 0.5s;
 
       ${isOpen &&
       `
@@ -44,8 +45,6 @@ const SectionHeader = ({ title, isOpen, setIsOpen, numberOfArticles }) => {
 			`}
 
       & svg {
-        /* height: 2rem;
-				width: 2rem; */
         color: inherit;
       }
     `,

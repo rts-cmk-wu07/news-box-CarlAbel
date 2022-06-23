@@ -6,11 +6,11 @@ import ThemeContext from "../context/ThemeContext"
 
 const SettingsItem = ({
   section,
-  state,
+  setState,
   toggleActiveSections,
   setToggleActiveSections,
 }) => {
-  const [active, setActive] = useState(state)
+  const [active, setActive] = useState(setState)
 
   const colors = useContext(ThemeContext)
 
@@ -66,7 +66,7 @@ const SettingsItem = ({
   }
   return (
     <li css={styles.item}>
-      <HeadingCard type="sub" text={section} />
+      <HeadingCard type="HeadingSub" text={section} />
       <button
         css={styles.button}
         onClick={clickHandler}
