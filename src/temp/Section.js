@@ -1,21 +1,22 @@
 import SectionHeader from "../components/SectionHeader"
-import { useState } from "react"
+
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react"
+// import { toast } from "react-toastify"
+import FeatherIcon from "feather-icons-react"
 
-import { useContext } from "react"
+import { useContext, useState } from "react"
+import { useLocation } from "react-router-dom"
 import ThemeContext from "../context/ThemeContext"
 
-import SectionArticle from "../components/SectionArticle"
+import Article from "../components/Article"
+import "react-swipeable-list/dist/styles.css"
 import {
   SwipeableList,
   SwipeableListItem,
   SwipeAction,
   TrailingActions,
 } from "react-swipeable-list"
-import "react-swipeable-list/dist/styles.css"
-import FeatherIcon from "feather-icons-react"
-import { useLocation } from "react-router-dom"
 
 const Section = ({ title, data }) => {
   const colors = useContext(ThemeContext)
@@ -27,7 +28,6 @@ const Section = ({ title, data }) => {
     return articles.filter((article) => article.section === title)
   }
 
-  // const numberOfArticles = filterData(data).length;
   const [numberOfArticles, setNumberOfArticles] = useState(
     filterData(data).length
   )
@@ -54,6 +54,14 @@ const Section = ({ title, data }) => {
       justify-content: center;
       background: ${colors.primaryColor_1};
       color: ${colors.text_1};
+    `,
+    delete: css`
+      background: ${colors.primaryColor_2};
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: ${colors.text_1};
+      width: 6rem;
     `,
   }
 
@@ -87,7 +95,7 @@ const Section = ({ title, data }) => {
           section: article.section,
           url: article.url,
         }
-        console.log(newArchive)
+
         let updatedArchive = []
         if (archive) {
           updatedArchive = [...archive, newArchive]
@@ -96,7 +104,6 @@ const Section = ({ title, data }) => {
         }
         localStorage.setItem("archive", JSON.stringify(updatedArchive))
       } else {
-        console.log("duplicate")
       }
     }
   }
@@ -116,18 +123,21 @@ const Section = ({ title, data }) => {
               key={index}
               trailingActions={
                 <TrailingActions>
-                  <SwipeAction
-                    onClick={() => swipeHandler(article)}
-                    destructive={location.pathname === "/archive"}
-                  >
-                    <div css={styles.swipe}>
-                      <FeatherIcon icon="inbox" />
-                    </div>
+                  <SwipeAction onClick={() => swipeHandler(article)}>
+                    {location.pathname === "/home" ? (
+                      <div css={styles.swipe}>
+                        <FeatherIcon icon="inbox" />
+                      </div>
+                    ) : (
+                      <div css={styles.delete}>
+                        <FeatherIcon icon="trash" />
+                      </div>
+                    )}
                   </SwipeAction>
                 </TrailingActions>
               }
             >
-              <SectionArticle data={article} />
+              <Article data={article} />
             </SwipeableListItem>
           ))}
       </SwipeableList>
