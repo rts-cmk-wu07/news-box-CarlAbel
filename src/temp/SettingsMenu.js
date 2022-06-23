@@ -4,8 +4,7 @@ import { css } from "@emotion/react"
 import HeadingCard from "../components/HeadingCard"
 import { useContext } from "react"
 import Context from "../context/Context"
-
-import Switch from "../components/Switch"
+import SettingsList from "../components/SettingsList"
 
 const SettingsMenu = ({ colors, handleThemeChange }) => {
   const optMenu = useContext(Context)
@@ -43,6 +42,13 @@ const SettingsMenu = ({ colors, handleThemeChange }) => {
 				}
 			`}
     `,
+    toggleDarkModeButton: css`
+      background: ${colors.secondaryColor_2};
+      color: ${colors.primaryColor_3};
+      border-radius: 16px;
+      height: 100px;
+      width: 150px;
+    `,
   }
   return (
     <div css={styles.settingsContainer}>
@@ -50,7 +56,7 @@ const SettingsMenu = ({ colors, handleThemeChange }) => {
         <HeadingCard type="HeadingPrimary" text="Manage" colors={colors} />
         <HeadingCard type="HeadingSub" text="Categories" colors={colors} />
       </div>
-      <Switch rounded={true} />
+      <SettingsList />
       <button css={styles.toggleDarkModeButton} onClick={handleThemeChange}>
         Toggle Dark Mode
       </button>

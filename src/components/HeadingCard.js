@@ -32,6 +32,7 @@ const HeadingCard = ({ type, text }) => {
     h5: css`
       font-size: 12pt;
       font-weight: 700;
+
       color: ${colors.text_1};
       height: 20px;
       overflow: hidden;

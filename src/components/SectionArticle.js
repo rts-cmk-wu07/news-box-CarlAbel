@@ -1,28 +1,23 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react"
-import { useState } from "react"
+import { useContext } from "react"
 
-import { vars } from "../vars/vars"
-import Body from "./BodyCard"
+import ThemeContext from "../context/ThemeContext"
+import BodyCard from "./BodyCard"
+
 import HeadingCard from "./HeadingCard"
 
 const SectionArticle = ({ data }) => {
-  const [theme, setTheme] = useState("light")
-  const handleThemeChange = () => {
-    if (theme === light) {
-      setTheme(dark)
-    } else {
-      setTheme(light)
-    }
-  }
-  const { light, dark } = vars
+  const colors = useContext(ThemeContext)
+
   const styles = {
     article: css`
       padding: 0.75rem 1.5rem;
       display: flex;
       align-items: center;
       gap: 1rem;
-      border-top: 1px solid ${light.secondaryColor_1};
+      border-top: 1px solid ${colors.secondaryColor_2};
+      background: ${colors.secondaryColor_1};
       width: 100%;
     `,
     img: css`
@@ -40,7 +35,7 @@ const SectionArticle = ({ data }) => {
       height: 4.5rem;
       width: 4.5rem;
       border-radius: 100px;
-      background: ${light.primaryColor_1}50;
+      background: ${colors.text_3}50;
     `,
   }
 
@@ -62,7 +57,7 @@ const SectionArticle = ({ data }) => {
       {findImage(data.media[0])}
       <div css={styles.div}>
         <HeadingCard type="HeadingCard" text={data.title} />
-        <Body type="textCard" text={data.abstract} />
+        <BodyCard type="textCard" text={data.abstract} />
       </div>
     </article>
   )

@@ -19,7 +19,7 @@ const Navbar = ({ handleThemeChange }) => {
   const optMenuOpen = optMenu.optMenu
   const setOptMenu = optMenu.setOptMenu
 
-  const aDuration = 0.7
+  const aDuration = 0.3
   const styles = {
     navbar: css`
       display: flex;

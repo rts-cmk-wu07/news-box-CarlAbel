@@ -2,7 +2,9 @@ import SectionHeader from "../components/SectionHeader"
 import { useState } from "react"
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react"
-import { vars } from "../vars/vars"
+
+import { useContext } from "react"
+import ThemeContext from "../context/ThemeContext"
 
 import SectionArticle from "../components/SectionArticle"
 import {
@@ -16,6 +18,8 @@ import FeatherIcon from "feather-icons-react"
 import { useLocation } from "react-router-dom"
 
 const Section = ({ title, data }) => {
+  const colors = useContext(ThemeContext)
+
   const [isOpen, setIsOpen] = useState(false)
   const location = useLocation()
 
@@ -29,10 +33,9 @@ const Section = ({ title, data }) => {
   )
   const articleHeight = 6
 
-  const { light } = vars
   const styles = {
     section: css`
-      border-bottom: 2px solid ${light.secondaryColor_1};
+      border-bottom: 2px solid ${colors.secondaryColor_2};
     `,
     list: css`
       height: 0;
@@ -49,8 +52,8 @@ const Section = ({ title, data }) => {
       display: flex;
       align-items: center;
       justify-content: center;
-      background: ${light.primaryColor_1};
-      color: ${light.text_1};
+      background: ${colors.primaryColor_1};
+      color: ${colors.text_1};
     `,
   }
 

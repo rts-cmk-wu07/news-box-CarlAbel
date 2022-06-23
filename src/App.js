@@ -1,17 +1,19 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react"
 
+import Context from "./context/Context"
 import ThemeContext from "./context/ThemeContext"
+import ToggleActiveContext from "./context/ToggleActiveContext"
+
 import { Outlet } from "react-router-dom"
 import "./App.css"
 import Navbar from "./components/Navbar"
 import { vars } from "./vars/vars"
 import { useState } from "react"
-import Context from "./context/Context"
 
 function App() {
   const { light, dark } = vars
-  const [theme, setTheme] = useState("light")
+  const [theme, setTheme] = useState(light)
   const handleThemeChange = () => {
     if (theme === dark) {
       setTheme(light)
@@ -21,6 +23,37 @@ function App() {
   }
   const colors = theme
 
+  const toggleActiveSectionsLS = JSON.parse(
+    localStorage.getItem("toggleActiveSections")
+  )
+  console.log(toggleActiveSectionsLS)
+  const sections = [
+    "World",
+    "U.S.",
+    "New York",
+    "Politics",
+    "Business",
+    "Opinion",
+    "Technology",
+    "Science",
+    "Health",
+    "Style",
+    "Travel",
+    "Sports",
+    "Arts",
+    "Books",
+    "Food",
+    "Magazine",
+    "T Magazine",
+    "Real Estate",
+    "Video",
+    "Gameplay",
+    "Theater",
+    "Well",
+  ]
+
+  const sectionList = sections.sort()
+  const [toggleActiveSections, setToggleActiveSections] = useState(sectionList)
   const styles = {
     contentContainer: css`
       background: ${colors.secondaryColor_1};
@@ -34,12 +67,18 @@ function App() {
     <div className="App">
       <ThemeContext.Provider value={colors}>
         <Context.Provider value={{ optMenu, setOptMenu }}>
-          <div>
+          <ToggleActiveContext.Provider
+            value={{
+              sections: { sectionList, toggleActiveSections },
+              setToggleActiveSections,
+            }}
+          >
             <Navbar colors={colors} handleThemeChange={handleThemeChange} />
-          </div>
-          <div css={styles.contentContainer}>
-            <Outlet />
-          </div>
+
+            <div css={styles.contentContainer}>
+              <Outlet />
+            </div>
+          </ToggleActiveContext.Provider>
         </Context.Provider>
       </ThemeContext.Provider>
     </div>
