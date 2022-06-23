@@ -33,8 +33,8 @@ const SettingsMenu = ({ colors, handleThemeChange }) => {
 
       ${optMenuOpen &&
       `
-				padding: 32px 0;
-				height: 100vh;
+				padding: 10px 0;
+				height: 101vh;
 				background: ;
 				gap: 3rem;
 				& > * {
@@ -43,11 +43,17 @@ const SettingsMenu = ({ colors, handleThemeChange }) => {
 			`}
     `,
     toggleDarkModeButton: css`
-      background: ${colors.secondaryColor_2};
-      color: ${colors.primaryColor_3};
+      background: ${colors.secondaryColor_1};
+      color: ${colors.text_1};
+      opacity: 0.5;
+      border: 1px solid ${colors.secondaryColor_2};
       border-radius: 16px;
-      height: 100px;
-      width: 150px;
+      height: 50px;
+      width: 90%;
+      padding: 0 5px 0 5px;
+    `,
+    darkModeContainer: css`
+      padding-top: 20px;
     `,
   }
   return (
@@ -56,10 +62,15 @@ const SettingsMenu = ({ colors, handleThemeChange }) => {
         <HeadingCard type="HeadingPrimary" text="Manage" colors={colors} />
         <HeadingCard type="HeadingSub" text="Categories" colors={colors} />
       </div>
-      <SettingsList />
-      <button css={styles.toggleDarkModeButton} onClick={handleThemeChange}>
-        Toggle Dark Mode
-      </button>
+
+      <div>
+        <SettingsList />
+        <div css={styles.darkModeContainer}>
+          <button css={styles.toggleDarkModeButton} onClick={handleThemeChange}>
+            TOGGLE DARK MODE
+          </button>
+        </div>
+      </div>
     </div>
   )
 }

@@ -30,26 +30,12 @@ function App() {
   const sections = [
     "World",
     "U.S.",
-    "New York",
-    "Politics",
     "Business",
-    "Opinion",
-    "Technology",
     "Science",
     "Health",
-    "Style",
-    "Travel",
     "Sports",
-    "Arts",
-    "Books",
     "Food",
-    "Magazine",
-    "T Magazine",
-    "Real Estate",
-    "Video",
     "Gameplay",
-    "Theater",
-    "Well",
   ]
 
   const sectionList = sections.sort()
