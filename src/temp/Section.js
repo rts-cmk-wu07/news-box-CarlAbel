@@ -17,11 +17,14 @@ import {
   SwipeAction,
   TrailingActions,
 } from "react-swipeable-list"
+import PopUp from "../components/PopUp"
 
 const Section = ({ title, data }) => {
   const colors = useContext(ThemeContext)
 
-  const [isOpen, setIsOpen] = useState(false)
+  const [popUp, setPopUp] = useState("")
+  const [popUpOpen, setPopUpOpen] = useState(false)
+  const [open, setOpen] = useState(false)
   const location = useLocation()
 
   const filterData = (articles) => {
@@ -41,7 +44,7 @@ const Section = ({ title, data }) => {
       height: 0;
       overflow-y: hidden;
       transition: calc(0.05s * ${numberOfArticles} + 0.25s);
-      ${isOpen &&
+      ${open &&
       `
 				height: calc(${
           numberOfArticles * articleHeight
@@ -103,7 +106,17 @@ const Section = ({ title, data }) => {
           updatedArchive = [newArchive]
         }
         localStorage.setItem("archive", JSON.stringify(updatedArchive))
+        setPopUpOpen(true)
+        setPopUp("The Article is Saved in Archive.")
+        setTimeout(() => {
+          setPopUpOpen(false)
+        }, 5000)
       } else {
+        setPopUpOpen(true)
+        setPopUp(`The Article is already Saved in Archive`)
+        setTimeout(() => {
+          setPopUpOpen(false)
+        }, 5000)
       }
     }
   }
@@ -112,8 +125,8 @@ const Section = ({ title, data }) => {
     <section css={styles.section}>
       <SectionHeader
         title={title}
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
+        open={open}
+        setOpen={setOpen}
         numberOfArticles={numberOfArticles}
       />
       <SwipeableList css={styles.list}>
@@ -141,6 +154,7 @@ const Section = ({ title, data }) => {
             </SwipeableListItem>
           ))}
       </SwipeableList>
+      <PopUp popUp={popUp} popUpOpen={popUpOpen} />
     </section>
   )
 }

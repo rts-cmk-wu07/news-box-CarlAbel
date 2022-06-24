@@ -5,7 +5,7 @@ import { css } from "@emotion/react"
 import { useContext } from "react"
 import ThemeContext from "../context/ThemeContext"
 
-const SectionHeader = ({ title, isOpen, setIsOpen, numberOfArticles }) => {
+const SectionHeader = ({ title, open, setOpen, numberOfArticles }) => {
   const colors = useContext(ThemeContext)
   const styles = {
     header: css`
@@ -39,7 +39,7 @@ const SectionHeader = ({ title, isOpen, setIsOpen, numberOfArticles }) => {
       color: inherit;
       transition: 0.5s;
 
-      ${isOpen &&
+      ${open &&
       `
 				transform: rotate(90deg);
 			`}
@@ -56,7 +56,7 @@ const SectionHeader = ({ title, isOpen, setIsOpen, numberOfArticles }) => {
     `,
   }
   return (
-    <header css={styles.header} onClick={() => setIsOpen(!isOpen)}>
+    <header css={styles.header} onClick={() => setOpen(!open)}>
       <div css={styles.icon}>
         <FeatherIcon icon="slack" />
       </div>
